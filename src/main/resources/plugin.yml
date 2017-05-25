@@ -1,0 +1,5 @@
+name: KotlinPlugin
+main: com.KotlinPlugin.Main
+version: 1.0.0
+author: towa0131
+api: ["1.0.0"]
