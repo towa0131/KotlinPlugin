@@ -19,7 +19,6 @@ apply plugin: 'kotlin'
 apply plugin: 'application'
 apply plugin: 'com.github.johnrengelman.shadow'
 
-//絶対に指定すること
 mainClassName="com.KotlinTest.Main"
 
 defaultTasks 'installShadowApp'
@@ -29,7 +28,6 @@ repositories {
     maven {
         url 'http://ci.mengcraft.com:8080/plugin/repository/everything/'      //nukkit
     }
-
 }
 
 dependencies {
@@ -37,6 +35,7 @@ dependencies {
     compile 'cn.nukkit:nukkit:1.0-SNAPSHOT'
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
+
 shadowJar {
     dependencies {
         include(dependency('org.jetbrains.kotlin:kotlin-runtime:1.0.6'))
@@ -46,6 +45,7 @@ shadowJar {
 sourceSets {
     main.java.srcDirs += 'src/main/kotlin'
 }
+
 jar {
     from { configurations.embed.collect { it.isDirectory() ? it : zipTree(it) } }
 }
